@@ -13,7 +13,8 @@ public class Doctor {
      * @param theCol The column this Doctor starts at.
      */
     public Doctor(int theRow, int theCol) {
-
+        this.col = theCol;
+        this.row = theRow;
     }
 
     /**
@@ -28,6 +29,18 @@ public class Doctor {
      * @param newCol The column the player clicked on.
      */
     public void move(int newRow, int newCol) {
+        //checks how far away the click is
+         if (newRow > row + 1 || newRow < row - 1 || newCol > col + 1 || newCol < col - 1) {
+            row = (int) (Math.random() * 12);
+            col = (int) (Math.random() * 12);
+
+        } else {
+
+            row = newRow;
+
+            col = newCol;
+
+        }
 
     }
 
@@ -37,7 +50,7 @@ public class Doctor {
      * @return This Doctor's row.
      */
     public int getRow() {
-
+        return this.row;
     }
 
     /**
@@ -46,7 +59,7 @@ public class Doctor {
      * @return This Doctor's column.
      */
     public int getCol() {
-
+        return this.col;
     }
 
 }
